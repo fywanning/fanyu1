@@ -1,0 +1,129 @@
+<!-- // 1.请实现未知宽高的盒子在页面中水平垂直居中 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      .table {
+        display: table;
+      }
+      .cell {
+        display: table-cell;
+        width: 100px;
+        height: 100px;
+        border: 1px solid #ccc;
+        vertical-align: middle;
+        text-align: center;
+      }
+      .cell span {
+        background: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table">
+      <div class="cell">
+        <!--span是未知宽高，需水平垂直居中的元素-->
+        <span>hahaha</span>
+      </div>
+    </div>
+  </body>
+  <script>
+  // 2.简述盒模型、怎么修改盒模型
+
+  //简述盒模型：
+  //指的是页面在渲染时，DOM元素所采用的布局模型。
+  // 一个元素占用的空间大小由几个部分组成，内容(content)、内边距(padding)，边框(border)和外边距(margin)。
+  // 可以通过box-sizing来进行设置，其中IE盒模型(也有叫怪异盒模型的)的content包含了padding和border，这是区别于W3C标准盒模型的地方
+
+  //修改盒模型：
+//   box-sizing:border-box;
+// box-sizing:content-box;
+
+
+
+// 3.src和href的区别
+// href：Hypertext Reference的缩写，超文本引用，它指向一些网络资源，建立和当前元素或者说是本文档的链接关系。在加载它的时候，不会停止对当前文档的处理，浏览器会继续往下走。常用在a、link等标签。
+// src：source的所写，表示的是对资源的引用，它指向的内容会嵌入到当前标签所在的位置。由于src的内容是页面必不可少的一部分，因此浏览器在解析src时会停下来对后续文档的处理，直到src的内容加载完毕。常用在script、img、iframe标签中，我们建议js文件放在HTML文档的最后面。如果js文件放在了head标签中，可以使用window.onload实现js的最后加载。
+  
+
+// 4.简述8种position属性值
+// 1.static
+// positon定位的默认值，没有定位
+
+// 2.relative
+// 生成相对定位的元素，相对于其正常位置进行定位，一般在子元素设置absoute定位时，给父元素设置relative
+// 元素的位置通过top、right、bottom、left  控制，其值的定位起点都是是父元素左上角(这点和absoute、fixed不一样)
+
+// 3.absoute
+// 生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位
+// 元素的位置通过top、right、bottom、left  控制，top、left的定位起点是包含块左上角，right、bottom的定位起点是包含块右下角
+
+// 4.fixed  （ie6不兼容）
+// 生成绝对定位的元素，相对于浏览器窗口进行定位，和absoute的区别是fixed不会跟随屏幕滚动(常见的各种贴屏广告)
+// 元素的位置通过top、right、bottom、left  控制，top、left的定位起点是包含块左上角，right、bottom的定位起点是包含块右下角
+
+// 5.inherit
+// 规定应该从父元素继承 position 属性的值
+// inherit 关键字可用于任何 HTML 元素上的任何 CSS 属性
+// 兼容：ie7及以下版本不支持此属性
+
+// 6.initial 
+// 设置positon的值为默认值(static)
+// 兼容：ie不支持此属性
+// initial 关键字可用于任何 HTML 元素上的任何 CSS 属性，不是postion特有的
+
+// 7.unset
+// 设置positon的值为不设置：
+// 如果该属性的默认属性是 继承属性(例如字体相关的默认属性基本都是继承)，该值等同于 inherit
+// 如果该属性的默认属性 不是继承属性(例如pisition的默认属性为static)，该值等同于 initial
+// 兼容：ie不支持此属性
+
+// 8.sticky
+// css3新属性，它的表现就像position:relative和position:fixed的合体
+
+// 5.简述css hack
+// CSS Hack大致有3种表现形式，属性级Hack、选择器Hack以及IE条件Hack
+// 由于不同的浏览器对CSS的支持及解析结果不一样，还由于CSS中的优先级的关系。我们就可以根据这个来针对不同的浏览器来写不同的CSS。
+
+
+// 6.简述px、rem、em 的区别 怎么实现适配
+
+// <!doctype html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport"
+//           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+//     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+//     <title>Document</title>
+//     <script language="JavaScript" type="text/javascript">
+
+//         var html = document.documentElement;
+//         var htmlWidth = document.documentElement.clientWidth;
+
+//         //html.style.fontSize = htmlWidth/27+'px'; //如：设计图1080宽度，将屏幕分为27份，每份为设计图的40px
+//         html.style.fontSize = htmlWidth/15+'px';   //如：设计图750宽度，将屏幕分为15份，每份为设计图的50px
+
+    //  </script>
+     <!-- <style> -->
+        <!-- *{
+            margin: 0;
+            padding: 0;
+             list-style: none;
+         }
+         .box{
+             width: 7.5rem;     /* 相当于设计图上的7.5*50px     设置的值=设计图上的长度/每份的长度 */
+             height: 2.5rem;  /* 相当于设计图上的2.5*50px  */
+             border: 1px solid #000;
+         } -->
+
+     <!-- </style>
+ </head>
+ <body>
+ <div class="box"></div>
+ </body>
+ </html> -->
+
+  </script>
+</html>
